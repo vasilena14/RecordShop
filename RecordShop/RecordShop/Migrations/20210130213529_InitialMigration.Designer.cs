@@ -9,7 +9,7 @@ using RecordShop.AppDbContext;
 namespace RecordShop.Migrations
 {
     [DbContext(typeof(RecordShopDbContext))]
-    [Migration("20210130184255_InitialMigration")]
+    [Migration("20210130213529_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

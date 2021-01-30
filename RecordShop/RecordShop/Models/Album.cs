@@ -10,11 +10,11 @@ namespace RecordShop.Models
     public class Album
     {
         public int Id { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Please enter name")]
         [DisplayName("Name of album")]
         [StringLength(255)]
         public string Name { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Please enter year of release")]
         [DisplayName("Year of release")]
         [Range(1800, 2021, ErrorMessage = "Not in the valid year range.")]
         public int Year { get; set; }

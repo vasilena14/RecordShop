@@ -9,7 +9,7 @@ namespace RecordShop.Models
     public class Artist
     {
         public int Id { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Please enter name")]
         [StringLength(255)]
         public string Name { get; set; }
     }
