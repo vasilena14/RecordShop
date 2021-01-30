@@ -1,0 +1,8 @@
+E:\C# project\RecordShop\RecordShop\RecordShop\obj\Debug\netcoreapp3.1\RecordShop.csprojAssemblyReference.cache
+E:\C# project\RecordShop\RecordShop\RecordShop\obj\Debug\netcoreapp3.1\RecordShop.AssemblyInfoInputs.cache
+E:\C# project\RecordShop\RecordShop\RecordShop\obj\Debug\netcoreapp3.1\RecordShop.AssemblyInfo.cs
+E:\C# project\RecordShop\RecordShop\RecordShop\obj\Debug\netcoreapp3.1\RecordShop.csproj.CoreCompileInputs.cache
+E:\C# project\RecordShop\RecordShop\RecordShop\obj\Debug\netcoreapp3.1\RecordShop.MvcApplicationPartsAssemblyInfo.cs
+E:\C# project\RecordShop\RecordShop\RecordShop\obj\Debug\netcoreapp3.1\RecordShop.MvcApplicationPartsAssemblyInfo.cache
+E:\C# project\RecordShop\RecordShop\RecordShop\obj\Debug\netcoreapp3.1\RecordShop.RazorAssemblyInfo.cache
+E:\C# project\RecordShop\RecordShop\RecordShop\obj\Debug\netcoreapp3.1\RecordShop.RazorAssemblyInfo.cs
