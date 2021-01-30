@@ -11,7 +11,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using RecordShop.Data;
 using RecordShop.AppDbContext;
 
 namespace RecordShop
@@ -30,7 +29,7 @@ namespace RecordShop
         {
             services.AddDbContext<RecordShopDbContext>(options =>
                 options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
+                    Configuration.GetConnectionString("Default")));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<RecordShopDbContext>();
             services.AddControllersWithViews();
