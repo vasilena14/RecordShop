@@ -164,3 +164,4 @@ E:\C# project\RecordShop\RecordShop\RecordShop\bin\Debug\netcoreapp3.1\zh-Hans\M
 E:\C# project\RecordShop\RecordShop\RecordShop\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
 E:\C# project\RecordShop\RecordShop\RecordShop\obj\Debug\netcoreapp3.1\Razor\Views\Artist\Index.cshtml.g.cs
 E:\C# project\RecordShop\RecordShop\RecordShop\obj\Debug\netcoreapp3.1\Razor\Views\Artist\Create.cshtml.g.cs
+E:\C# project\RecordShop\RecordShop\RecordShop\obj\Debug\netcoreapp3.1\Razor\Views\Artist\Edit.cshtml.g.cs
