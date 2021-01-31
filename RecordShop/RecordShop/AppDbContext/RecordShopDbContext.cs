@@ -17,6 +17,7 @@ namespace RecordShop.AppDbContext
         }
         public DbSet<Artist> Artists { get; set; }
         public DbSet<Album> Albums { get; set; }
+        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
 
     }
 }
