@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RecordShop.AppDbContext;
+using RecordShop.Models;
 using RecordShop.Models.ViewModels;
 
 namespace RecordShop.Controllers
@@ -46,6 +47,41 @@ namespace RecordShop.Controllers
                 return View(AlbumVM);
             }
             _db.Add(AlbumVM.Album);
+            _db.SaveChanges();
+            return RedirectToAction(nameof(Index));
+        }
+
+        public IActionResult Edit(int id)
+        {
+            AlbumVM.Album = _db.Albums.Include(m => m.Artist).SingleOrDefault(m => m.Id == id);
+            if (AlbumVM.Album == null)
+            {
+                return NotFound();
+            }
+            return View(AlbumVM);
+        }
+
+        [HttpPost, ActionName("Edit")]
+        public IActionResult EditPost()
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(AlbumVM);
+            }
+            _db.Update(AlbumVM.Album);
+            _db.SaveChanges();
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpPost]
+        public IActionResult Delete(int id)
+        {
+            Album album = _db.Albums.Find(id);
+            if (album == null)
+            {
+                return NotFound();
+            }
+            _db.Albums.Remove(album);
             _db.SaveChanges();
             return RedirectToAction(nameof(Index));
         }

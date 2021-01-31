@@ -1,0 +1,94 @@
+﻿@model RecordShop.Models.ViewModels.AlbumViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<br />
+<h2 class="text-info">Edit Album</h2>
+<br />
+<div class="row">
+    <form asp-action="Edit">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Album.Id" />
+        <div class="form-group row mb-1">
+            <div class="col-2">
+                <label asp-for="Artists"></label>
+            </div>
+            <div class="col-4">
+                <select asp-for="Album.ArtistID" asp-items="Model.CSelectListItem(Model.Artists)" class="form-control"></select>
+            </div>
+        </div>
+        <div class="form-group row mb-1">
+            <div class="col-2">
+                <label asp-for="Album.Name"></label>
+            </div>
+            <div class="col-4">
+                <input asp-for="Album.Name" class="form-control" />
+                <span asp-validation-for="Album.Name" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row mb-1">
+            <div class="col-2">
+                <label asp-for="Album.Year"></label>
+            </div>
+            <div class="col-4">
+                <input asp-for="Album.Year" class="form-control" />
+                <span asp-validation-for="Album.Year" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row text-end">
+            <div class="col-6 form-group">
+                <input type="submit" class="btn btn-primary" value="Update" />
+                <a asp-action="Index" class="btn btn-success">Back</a>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+@*@model RecordShop.Models.Album
+
+    @{
+        ViewData["Title"] = "Edit";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+    <h1>Edit</h1>
+
+    <h4>Album</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Id" />
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Year" class="control-label"></label>
+                    <input asp-for="Year" class="form-control" />
+                    <span asp-validation-for="Year" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ArtistID" class="control-label"></label>
+                    <select asp-for="ArtistID" class="form-control" asp-items="ViewBag.ArtistID"></select>
+                    <span asp-validation-for="ArtistID" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>*@
+
