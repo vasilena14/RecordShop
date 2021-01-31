@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using RecordShop.Helpers
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -20,21 +21,28 @@
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="#">Home</a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Record Info
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" asp-controller="#" asp-action="#">Records</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                @*<li><a class="dropdown-item" asp-controller="Record" asp-action="Index">Records</a></li>*@
-                                <li><a class="dropdown-item" asp-controller="Artist" asp-action="Index">Artists</a></li>
-                                <li><a class="dropdown-item" asp-controller="Album" asp-action="Index">Albums</a></li>
-                                <li><a class="dropdown-item" href="#">Genres</a></li>
-
-                            </ul>
-                        </li>
-                    </ul>
+                        @if (User.IsInRole(Roles.Admin) || User.IsInRole(Roles.Executive))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Record Info
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" asp-controller="#" asp-action="#">Records</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    @*<li><a class="dropdown-item" asp-controller="Record" asp-action="Index">Records</a></li>*@
+                                    <li><a class="dropdown-item" asp-controller="Artist" asp-action="Index">Artists</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Album" asp-action="Index">Albums</a></li>
+                                    <li><a class="dropdown-item" href="#">Genres</a></li>
+                                    @if (User.IsInRole("Admin"))
+                                    {
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item" asp-area="Identity" asp-page="/Account/Register">Register User</a></li>
+                                    }
+                                </ul>
+                            </li>
+                        }
+                        </ul>
                     <partial name="_LoginPartial" />
                 </div>
             </div>

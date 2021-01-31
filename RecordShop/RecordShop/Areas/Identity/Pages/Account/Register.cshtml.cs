@@ -13,11 +13,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+using RecordShop.Helpers;
 using RecordShop.Models;
 
 namespace RecordShop.Areas.Identity.Pages.Account
 {
-    [AllowAnonymous]
+    [Authorize(Roles = Roles.Admin)]
     public class RegisterModel : PageModel
     {
         private readonly SignInManager<IdentityUser> _signInManager;
@@ -92,10 +93,32 @@ namespace RecordShop.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = Input.UserName, Email = Input.Email };
+                var user = new ApplicationUser { UserName = Input.UserName, Email = Input.Email, PhoneNumber = Input.PhoneNumber, PhoneNumber2 = Input.PhoneNumber2 };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
+                    //Create roles if they don't exist
+                    if (!await _roleManager.RoleExistsAsync(Roles.Admin))
+                    {
+                        await _roleManager.CreateAsync(new IdentityRole(Roles.Admin));
+                    }
+                    if (!await _roleManager.RoleExistsAsync(Roles.Executive))
+                    {
+                        await _roleManager.CreateAsync(new IdentityRole(Roles.Executive));
+                    }
+
+                    //Assign user role according to the checkbox
+                    if (Input.IsAdmin)
+                    {
+                        await _userManager.AddToRoleAsync(user, Roles.Admin);
+                    }
+                    else
+                    {
+                        await _userManager.AddToRoleAsync(user, Roles.Executive);
+                    }
+
+
+
                     _logger.LogInformation("User created a new account with password.");
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
@@ -109,15 +132,16 @@ namespace RecordShop.Areas.Identity.Pages.Account
                     await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
                         $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
-                    if (_userManager.Options.SignIn.RequireConfirmedAccount)
-                    {
-                        return RedirectToPage("RegisterConfirmation", new { email = Input.Email, returnUrl = returnUrl });
-                    }
-                    else
-                    {
-                        await _signInManager.SignInAsync(user, isPersistent: false);
-                        return LocalRedirect(returnUrl);
-                    }
+                    //if (_userManager.Options.SignIn.RequireConfirmedAccount)
+                    //{
+                    //    return RedirectToPage("RegisterConfirmation", new { email = Input.Email, returnUrl = returnUrl });
+                    //}
+                    //else
+                    //{
+                    //    await _signInManager.SignInAsync(user, isPersistent: false);
+                    //    return LocalRedirect(returnUrl);
+                    //}
+                    return RedirectToAction("Index");
                 }
                 foreach (var error in result.Errors)
                 {

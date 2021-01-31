@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RecordShop.AppDbContext;
+using RecordShop.Helpers;
 using RecordShop.Models;
 
 namespace RecordShop.Controllers
 {
+    [Authorize(Roles = Roles.Admin + "," + Roles.Executive)]
     public class ArtistController : Controller
     {
         private readonly RecordShopDbContext _db;

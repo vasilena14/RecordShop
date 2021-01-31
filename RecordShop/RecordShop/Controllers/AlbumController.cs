@@ -2,14 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RecordShop.AppDbContext;
+using RecordShop.Helpers;
 using RecordShop.Models;
 using RecordShop.Models.ViewModels;
 
 namespace RecordShop.Controllers
 {
+    [Authorize(Roles = Roles.Admin + "," + Roles.Executive)]
     public class AlbumController : Controller
     {
         private readonly RecordShopDbContext _db;
