@@ -49,6 +49,8 @@ namespace RecordShop.Controllers
         {
             if (!ModelState.IsValid)
             {
+                RecordAdVM.Artists = _db.Artists.ToList();
+                RecordAdVM.Albums = _db.Albums.ToList();
                 return View(RecordAdVM);
             }
             _db.RecordAds.Add(RecordAdVM.RecordAd);
