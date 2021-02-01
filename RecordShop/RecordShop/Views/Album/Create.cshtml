@@ -1,5 +1,5 @@
 ﻿@model RecordShop.Models.ViewModels.AlbumViewModel
-
+@using RecordShop.Extensions
 @{
     ViewData["Title"] = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -17,7 +17,7 @@
                 <label asp-for="Artists"></label>
             </div>
             <div class="col-4">
-                <select asp-for="Album.ArtistID" asp-items="Model.CSelectListItem(Model.Artists)" class="form-control"></select>
+                <select asp-for="Album.ArtistID" asp-items="Model.Artists.ToSelectListItem()" class="form-control"></select>
             </div>
         </div>
         <div class="form-group row mb-1">

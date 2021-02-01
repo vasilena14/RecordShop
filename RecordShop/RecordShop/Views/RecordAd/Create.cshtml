@@ -1,0 +1,113 @@
+﻿@model RecordShop.Models.ViewModels.RecordAdViewModel
+@using RecordShop.Extensions
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<br />
+<h2 class="text-info">Add New Record Ad</h2>
+<br />
+<div class="row">
+    <form asp-action="Create">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="form-group row mb-1">
+            <div class="col-2">
+                <label asp-for="Artists"></label>
+            </div>
+            <div class="col-4">
+                <select asp-for="RecordAd.ArtistID" asp-items="Model.Artists.ToSelectListItem()" class="form-control"></select>
+            </div>
+        </div>
+        <div class="form-group row mb-1">
+            <div class="col-2">
+                <label asp-for="Albums"></label>
+            </div>
+            <div class="col-4">
+                <select asp-for="RecordAd.AlbumID" asp-items="Model.Albums.ToSelectListItem()" class="form-control"></select>
+            </div>
+        </div>
+        <div class="form-group row mb-1">
+            <div class="col-2">
+                <label asp-for="RecordAd.Genre"></label>
+            </div>
+            <div class="col-4">
+                <input asp-for="RecordAd.Genre" class="form-control" />
+                <span asp-validation-for="RecordAd.Genre" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row mb-1">
+            <div class="col-2">
+                <label asp-for="RecordAd.Country"></label>
+            </div>
+            <div class="col-4">
+                <input asp-for="RecordAd.Country" class="form-control" />
+                <span asp-validation-for="RecordAd.Country" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row mb-1">
+            <div class="col-2">
+                <label asp-for="RecordAd.Format"></label>
+            </div>
+            <div class="col-4">
+                <input asp-for="RecordAd.Format" class="form-control" />
+                <span asp-validation-for="RecordAd.Format" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row mb-1">
+            <div class="col-2">
+                <label asp-for="RecordAd.Price"></label>
+            </div>
+            <div class="col-4">
+                <input asp-for="RecordAd.Price" class="form-control" />
+                <span asp-validation-for="RecordAd.Price" class="text-danger"></span>
+            </div>
+
+            <div class="col-1">
+                <label asp-for="RecordAd.Currency"></label>
+            </div>
+            <div class="col-4">
+                <select asp-for="RecordAd.Currency" asp-items="Model.Currencies.ToSelectListItem()" class="form-control"></select>
+                <span asp-validation-for="RecordAd.Currency" class="text-danger"></span>
+            </div>
+
+
+        </div>
+        <div class="form-group row mb-1">
+            <div class="col-2">
+                <label asp-for="RecordAd.SellerName"></label>
+            </div>
+            <div class="col-4">
+                <input asp-for="RecordAd.SellerName" class="form-control" />
+                <span asp-validation-for="RecordAd.SellerName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row mb-1">
+            <div class="col-2">
+                <label asp-for="RecordAd.SellerEmail"></label>
+            </div>
+            <div class="col-4">
+                <input asp-for="RecordAd.SellerEmail" class="form-control" />
+                <span asp-validation-for="RecordAd.SellerEmail" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row mb-1">
+            <div class="col-2">
+                <label asp-for="RecordAd.SellerPhone"></label>
+            </div>
+            <div class="col-4">
+                <input asp-for="RecordAd.SellerPhone" class="form-control" />
+                <span asp-validation-for="RecordAd.SellerPhone" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row text-end">
+            <div class="col-6 form-group">
+                <input type="submit" class="btn btn-primary" value="Create" />
+                <a asp-action="Index" class="btn btn-success">Back</a>
+            </div>
+        </div>
+    </form>
+</div>
+

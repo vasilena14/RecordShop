@@ -207,3 +207,5 @@ E:\C# project\RecordShop\RecordShop\RecordShop\obj\Debug\netcoreapp3.1\Razor\Are
 E:\C# project\RecordShop\RecordShop\RecordShop\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Error.cshtml.g.cs
 E:\C# project\RecordShop\RecordShop\RecordShop\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.cshtml.g.cs
 E:\C# project\RecordShop\RecordShop\RecordShop\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
+E:\C# project\RecordShop\RecordShop\RecordShop\obj\Debug\netcoreapp3.1\Razor\Views\RecordAd\Index.cshtml.g.cs
+E:\C# project\RecordShop\RecordShop\RecordShop\obj\Debug\netcoreapp3.1\Razor\Views\RecordAd\Create.cshtml.g.cs

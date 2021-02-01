@@ -1,0 +1,56 @@
+﻿@model IEnumerable<RecordShop.Models.RecordAd>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<br />
+
+<div class="row">
+    <div class="col-6">
+        <h2 class="text-info">Record Advertisements</h2>
+    </div>
+    <div class="col-6 text-end">
+        <a class="btn btn-info" asp-action="Create">Add New Record Ad</a>
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col-12">
+        <table class="table table-striped border">
+            <thead>
+                <tr class="table-info">
+                    <th>Record Cover</th>
+                    <th>Record Details</th>
+                    <th>Price</th>
+                    <th>Seller Information</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td><img src="@Html.DisplayFor(m => item.ImagePath)" width="150px" height="100px" /></td>
+                        <td>
+                            <b>@Html.DisplayFor(m => item.Artist.Name)</b><br />
+                            <b>Album: </b>@Html.DisplayFor(m => item.Album.Name) (@Html.DisplayFor(m => item.Album.Year)) <br />
+                            <b>Genre: </b>@Html.DisplayFor(m => item.Genre) <br />
+                            <b>Country: </b>@Html.DisplayFor(m => item.Country) <br />
+                            <b>Format: </b>@Html.DisplayFor(m => item.Format)
+                        </td>
+                        <td>@Html.DisplayFor(m => item.Price) @Html.DisplayFor(m => item.Currency)</td>
+                        <td>
+                            <b>Name: </b>@Html.DisplayFor(m => item.SellerName) <br />
+                            <b>Email: </b>@Html.DisplayFor(m => item.SellerEmail) <br />
+                            <b>Phone: </b>@Html.DisplayFor(m => item.SellerPhone)
+                        </td>
+                        <partial name="_TableButtonPartial" model="item.Id" />
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
