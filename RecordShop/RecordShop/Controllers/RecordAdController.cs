@@ -78,17 +78,17 @@ namespace RecordShop.Controllers
         //    return RedirectToAction(nameof(Index));
         //}
 
-        //[HttpPost]
-        //public IActionResult Delete(int id)
-        //{
-        //    Album album = _db.Albums.Find(id);
-        //    if (album == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    _db.Albums.Remove(album);
-        //    _db.SaveChanges();
-        //    return RedirectToAction(nameof(Index));
-        //}
+        [HttpPost]
+        public IActionResult Delete(int id)
+        {
+            RecordAd recordAd = _db.RecordAds.Find(id);
+            if (recordAd == null)
+            {
+                return NotFound();
+            }
+            _db.RecordAds.Remove(recordAd);
+            _db.SaveChanges();
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
