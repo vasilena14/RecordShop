@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using RecordShop.Extensions;
 
 namespace RecordShop.Models
 {
@@ -16,9 +17,10 @@ namespace RecordShop.Models
         public string Name { get; set; }
         [Required(ErrorMessage = "Please enter year of release")]
         [DisplayName("Year of release")]
-        [Range(1800, 2021, ErrorMessage = "Not in the valid year range.")]
+        [YearRange(1900, ErrorMessage = "Not in the valid year range.")]
         public int Year { get; set; }
         public Artist Artist { get; set; }
+        [RegularExpression("[1-9]*$", ErrorMessage = "Select Artist")]
         public int ArtistID { get; set; }
     }
 }
