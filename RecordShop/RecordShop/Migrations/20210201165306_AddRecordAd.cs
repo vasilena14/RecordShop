@@ -50,11 +50,10 @@ namespace RecordShop.Migrations
                     Format = table.Column<string>(nullable: false),
                     Genre = table.Column<string>(nullable: false),
                     SellerName = table.Column<string>(nullable: false),
-                    SellerEmail = table.Column<string>(nullable: true),
+                    SellerEmail = table.Column<string>(nullable: false),
                     SellerPhone = table.Column<string>(nullable: false),
-                    Price = table.Column<int>(nullable: false),
-                    Currency = table.Column<string>(nullable: false),
-                    ImagePath = table.Column<string>(nullable: true)
+                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Currency = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {

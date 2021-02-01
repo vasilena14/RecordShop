@@ -21,7 +21,6 @@
         <table class="table table-striped border">
             <thead>
                 <tr class="table-info">
-                    <th>Record Cover</th>
                     <th>Record Details</th>
                     <th>Price</th>
                     <th>Seller Information</th>
@@ -32,7 +31,6 @@
                 @foreach (var item in Model)
                 {
                     <tr>
-                        <td><img src="@Html.DisplayFor(m => item.ImagePath)" width="150px" height="100px" /></td>
                         <td>
                             <b>@Html.DisplayFor(m => item.Artist.Name)</b><br />
                             <b>Album: </b>@Html.DisplayFor(m => item.Album.Name) (@Html.DisplayFor(m => item.Album.Year)) <br />

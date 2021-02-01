@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -24,15 +25,16 @@ namespace RecordShop.Models
         [Required]
         [DisplayName("Seller Name")]
         public string SellerName { get; set; }
+        [Required]
         [DisplayName("Seller Email")]
         public string SellerEmail { get; set; }
         [Required]
         [DisplayName("Seller Phone Number")]
         public string SellerPhone { get; set; }
-        [Required] 
-        public int Price { get; set; }
+        [Required]
+        [Column(TypeName = "decimal(18,2)")]
+        public decimal Price { get; set; }
         [Required] 
         public string Currency { get; set; }
-        public string ImagePath { get; set; }
     }
 }

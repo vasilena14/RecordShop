@@ -10,7 +10,7 @@ using RecordShop.AppDbContext;
 namespace RecordShop.Migrations
 {
     [DbContext(typeof(RecordShopDbContext))]
-    [Migration("20210131220957_AddRecordAd")]
+    [Migration("20210201165306_AddRecordAd")]
     partial class AddRecordAd
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -294,13 +294,11 @@ namespace RecordShop.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ImagePath")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Price")
-                        .HasColumnType("int");
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("SellerEmail")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SellerName")
