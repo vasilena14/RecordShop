@@ -20,7 +20,7 @@ namespace RecordShop.Models
         [YearRange(1900, ErrorMessage = "Not in the valid year range.")]
         public int Year { get; set; }
         public Artist Artist { get; set; }
-        [RegularExpression("[1-9]*$", ErrorMessage = "Select Artist")]
+        [RegularExpression("^[1-9]*$", ErrorMessage = "Select Artist")]
         public int ArtistID { get; set; }
     }
 }

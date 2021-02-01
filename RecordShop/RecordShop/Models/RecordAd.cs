@@ -12,10 +12,10 @@ namespace RecordShop.Models
     {
         public int Id { get; set; }
         public Artist Artist { get; set; }
-        [RegularExpression("[1-9]*$", ErrorMessage = "Select Artist")]
+        [RegularExpression("^[1-9]*$", ErrorMessage = "Select Artist")]
         public int ArtistID { get; set; }
         public Album Album { get; set; }
-        [RegularExpression("[1-9]*$", ErrorMessage = "Select Album")]
+        [RegularExpression("^[1-9]*$", ErrorMessage = "Select Album")]
         public int AlbumID { get; set; }
         [Required]
         [DisplayName("Release Country")]
@@ -38,7 +38,7 @@ namespace RecordShop.Models
         [Column(TypeName = "decimal(18,2)")]
         public decimal Price { get; set; }
         [Required]
-        [RegularExpression("[A-Za-z]*$", ErrorMessage = "Select Currency")]
+        [RegularExpression("^[A-Za-z]*$", ErrorMessage = "Select Currency")]
         public string Currency { get; set; }
     }
 }
