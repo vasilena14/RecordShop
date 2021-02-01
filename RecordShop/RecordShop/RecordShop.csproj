@@ -8,6 +8,8 @@
   <ItemGroup>
     <Compile Remove="Migrations\20210201164529_AddRecordAd.cs" />
     <Compile Remove="Migrations\20210201164529_AddRecordAd.Designer.cs" />
+    <Compile Remove="Migrations\20210201213144_AddDataAnnotations.cs" />
+    <Compile Remove="Migrations\20210201213144_AddDataAnnotations.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

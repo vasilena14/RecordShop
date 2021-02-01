@@ -12,10 +12,10 @@ namespace RecordShop.Models
     {
         public int Id { get; set; }
         public Artist Artist { get; set; }
-        [RegularExpression("^[1-9]*$", ErrorMessage = "Select Artist")]
+        [RegularExpression("^[1-9][0-9]*$", ErrorMessage = "Select Artist")]
         public int ArtistID { get; set; }
         public Album Album { get; set; }
-        [RegularExpression("^[1-9]*$", ErrorMessage = "Select Album")]
+        [RegularExpression("^[1-9][0-9]*$", ErrorMessage = "Select Album")]
         public int AlbumID { get; set; }
         [Required]
         [DisplayName("Release Country")]
