@@ -20,9 +20,12 @@ namespace RecordShop.Models
         [Required]
         [DisplayName("Release Country")]
         public string Country { get; set; }
-        [Required]
-        [RegularExpression("^[A-Za-z]*$", ErrorMessage = "Select Format")]
-        public string Format { get; set; }
+        //[Required]
+        //[RegularExpression("^[A-Za-z]*$", ErrorMessage = "Select Format")]
+        //public string Format { get; set; }
+        public Format Format { get; set; }
+        [RegularExpression("^[1-9][0-9]*$", ErrorMessage = "Select Format")]
+        public int FormatID { get; set; }
         [Required]
         public string Genre { get; set; }
         [Required]

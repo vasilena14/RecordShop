@@ -301,9 +301,8 @@ namespace RecordShop.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Format")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("FormatID")
+                        .HasColumnType("int");
 
                     b.Property<string>("Genre")
                         .IsRequired()
@@ -329,6 +328,8 @@ namespace RecordShop.Migrations
                     b.HasIndex("AlbumID");
 
                     b.HasIndex("ArtistID");
+
+                    b.HasIndex("FormatID");
 
                     b.ToTable("RecordAds");
                 });
@@ -414,6 +415,12 @@ namespace RecordShop.Migrations
                     b.HasOne("RecordShop.Models.Artist", "Artist")
                         .WithMany()
                         .HasForeignKey("ArtistID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("RecordShop.Models.Format", "Format")
+                        .WithMany()
+                        .HasForeignKey("FormatID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
