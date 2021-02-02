@@ -12,19 +12,19 @@
     <header>
         <nav class="navbar navbar-expand-md navbar-dark bg-dark border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand text-nowrap mx-3" href="#">V's Record Shop</a>
+                <a class="navbar-brand text-nowrap mx-3" asp-controller="Home" asp-action="Index">V's Record Shop</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            <a class="nav-link active" aria-current="page" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         @if (User.IsInRole(Roles.Admin) || User.IsInRole(Roles.Executive))
                         {
                             <li class="nav-item dropdown">
-                                <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="nav-link active dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Record Info
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
