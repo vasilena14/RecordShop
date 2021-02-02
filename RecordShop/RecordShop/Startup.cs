@@ -30,7 +30,7 @@ namespace RecordShop
             services.AddDbContext<RecordShopDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("Default")));
-            services.AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddEntityFrameworkStores<RecordShopDbContext>()
                 .AddDefaultUI()
                 .AddDefaultTokenProviders();
