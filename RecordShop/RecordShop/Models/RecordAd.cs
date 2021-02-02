@@ -21,6 +21,7 @@ namespace RecordShop.Models
         [DisplayName("Release Country")]
         public string Country { get; set; }
         [Required]
+        [RegularExpression("^[A-Za-z]*$", ErrorMessage = "Select Format")]
         public string Format { get; set; }
         [Required]
         public string Genre { get; set; }
@@ -33,6 +34,7 @@ namespace RecordShop.Models
         public string SellerEmail { get; set; }
         [Required]
         [DisplayName("Seller Phone Number")]
+        [RegularExpression(@"^(?:\+359|0)[0-9]{9}$", ErrorMessage = "Not in the valid format +359xxxxxxxxx or 0xxxxxxxxx")]
         public string SellerPhone { get; set; }
         [Required]
         [Column(TypeName = "decimal(18,2)")]

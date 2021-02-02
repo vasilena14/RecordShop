@@ -52,7 +52,7 @@
                 <label asp-for="RecordAd.Format"></label>
             </div>
             <div class="col-4">
-                <input asp-for="RecordAd.Format" class="form-control" />
+                <select asp-for="RecordAd.Format" asp-items="Model.Formats.ToSelectListItem()" class="form-control"></select>
                 <span asp-validation-for="RecordAd.Format" class="text-danger"></span>
             </div>
         </div>

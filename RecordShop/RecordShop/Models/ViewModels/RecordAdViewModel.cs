@@ -11,10 +11,12 @@ namespace RecordShop.Models.ViewModels
         public RecordAd RecordAd { get; set; }
         public IEnumerable<Artist> Artists { get; set; }
         public IEnumerable<Album> Albums { get; set; }
+        public IEnumerable<Format> Formats { get; set; }
         public IEnumerable<Currency> Currencies { get; set; }
 
         private List<Currency> CList = new List<Currency>();
-        private List<Currency> CreateList()
+        private List<Format> FList = new List<Format>();
+        private List<Currency> CreateCurrencyList()
         {
             CList.Add(new Currency("USD", "USD"));
             CList.Add(new Currency("EUR", "EUR"));
@@ -22,30 +24,19 @@ namespace RecordShop.Models.ViewModels
             return CList;
         }
 
-        public RecordAdViewModel()
+        private List<Format> CreateFormatList()
         {
-            Currencies = CreateList();
+            FList.Add(new Format("CD", "CD"));
+            FList.Add(new Format("Cassette", "Cassette"));
+            FList.Add(new Format("Digital - MP3", "Digital - MP3"));
+            FList.Add(new Format("Vinyl", "Vinyl"));
+            return FList;
         }
 
-        public IEnumerable<SelectListItem> CSelectListItem(IEnumerable<Artist> Items)
+        public RecordAdViewModel()
         {
-            List<SelectListItem> ArtistList = new List<SelectListItem>();
-            SelectListItem sli = new SelectListItem
-            {
-                Text = "-----Select-----",
-                Value = "0"
-            };
-            ArtistList.Add(sli);
-            foreach (var item in Items)
-            {
-                sli = new SelectListItem
-                {
-                    Text = item.GetType().GetProperty("Name").GetValue(item, null).ToString(),
-                    Value = item.GetType().GetProperty("Id").GetValue(item, null).ToString()
-                };
-                ArtistList.Add(sli);
-            }
-            return ArtistList;
+            Currencies = CreateCurrencyList();
+            Formats = CreateFormatList();
         }
     }
 
@@ -55,6 +46,18 @@ namespace RecordShop.Models.ViewModels
         public String Name { get; set; }
 
         public Currency(String id, String name)
+        {
+            Id = id;
+            Name = name;
+        }
+    }
+
+    public class Format
+    {
+        public String Id { get; set; }
+        public String Name { get; set; }
+
+        public Format(String id, String name)
         {
             Id = id;
             Name = name;
