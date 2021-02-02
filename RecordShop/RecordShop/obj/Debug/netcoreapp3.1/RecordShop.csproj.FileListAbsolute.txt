@@ -178,3 +178,6 @@ E:\C# project\RecordShop\RecordShop\RecordShop\obj\Debug\netcoreapp3.1\Razor\Are
 E:\C# project\RecordShop\RecordShop\RecordShop\obj\Debug\netcoreapp3.1\Razor\Views\RecordAd\Create.cshtml.g.cs
 E:\C# project\RecordShop\RecordShop\RecordShop\obj\Debug\netcoreapp3.1\Razor\Views\RecordAd\Index.cshtml.g.cs
 E:\C# project\RecordShop\RecordShop\RecordShop\obj\Debug\netcoreapp3.1\Razor\Views\RecordAd\Edit.cshtml.g.cs
+E:\C# project\RecordShop\RecordShop\RecordShop\obj\Debug\netcoreapp3.1\Razor\Views\Format\Index.cshtml.g.cs
+E:\C# project\RecordShop\RecordShop\RecordShop\obj\Debug\netcoreapp3.1\Razor\Views\Format\Create.cshtml.g.cs
+E:\C# project\RecordShop\RecordShop\RecordShop\obj\Debug\netcoreapp3.1\Razor\Views\Format\Edit.cshtml.g.cs

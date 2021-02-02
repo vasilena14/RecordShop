@@ -18,6 +18,7 @@ namespace RecordShop.AppDbContext
         public DbSet<Artist> Artists { get; set; }
         public DbSet<Album> Albums { get; set; }
         public DbSet<RecordAd> RecordAds { get; set; }
+        public DbSet<Format> Formats { get; set; }
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
 
     }
