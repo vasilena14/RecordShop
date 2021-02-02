@@ -58,27 +58,32 @@ namespace RecordShop.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        //public IActionResult Edit(int id)
-        //{
-        //    AlbumVM.Album = _db.Albums.Include(m => m.Artist).SingleOrDefault(m => m.Id == id);
-        //    if (AlbumVM.Album == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    return View(AlbumVM);
-        //}
+        public IActionResult Edit(int id)
+        {
+            RecordAdVM.RecordAd = _db.RecordAds.SingleOrDefault(m => m.Id == id);
 
-        //[HttpPost, ActionName("Edit")]
-        //public IActionResult EditPost()
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return View(AlbumVM);
-        //    }
-        //    _db.Update(AlbumVM.Album);
-        //    _db.SaveChanges();
-        //    return RedirectToAction(nameof(Index));
-        //}
+            //Filter the albums associated to the selected artist
+            RecordAdVM.Albums = _db.Albums.Where(m => m.ArtistID == RecordAdVM.RecordAd.ArtistID);
+            if (RecordAdVM.RecordAd == null)
+            {
+                return NotFound();
+            }
+            return View(RecordAdVM);
+        }
+
+        [HttpPost, ActionName("Edit")]
+        public IActionResult EditPost()
+        {
+            if (!ModelState.IsValid)
+            {
+                RecordAdVM.Artists = _db.Artists.ToList();
+                RecordAdVM.Albums = _db.Albums.ToList();
+                return View(RecordAdVM);
+            }
+            _db.RecordAds.Update(RecordAdVM.RecordAd);
+            _db.SaveChanges();
+            return RedirectToAction(nameof(Index));
+        }
 
         [HttpPost]
         public IActionResult Delete(int id)
