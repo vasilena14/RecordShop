@@ -27,6 +27,7 @@ namespace RecordShop.Controllers
             {
                 Artists = _db.Artists.ToList(),
                 Albums = _db.Albums.ToList(),
+                Formats = _db.Formats.ToList(),
                 RecordAd = new Models.RecordAd()
             };
         }
@@ -34,7 +35,7 @@ namespace RecordShop.Controllers
         [AllowAnonymous]
         public IActionResult Index()
         {
-            var RecordAds = _db.RecordAds.Include(m => m.Artist).Include(m => m.Album);
+            var RecordAds = _db.RecordAds.Include(m => m.Artist).Include(m => m.Album).Include(m => m.Format);
             return View(RecordAds.ToList());
         }
 
@@ -52,6 +53,7 @@ namespace RecordShop.Controllers
             {
                 RecordAdVM.Artists = _db.Artists.ToList();
                 RecordAdVM.Albums = _db.Albums.ToList();
+                RecordAdVM.Formats = _db.Formats.ToList();
                 return View(RecordAdVM);
             }
             _db.RecordAds.Add(RecordAdVM.RecordAd);
@@ -79,6 +81,7 @@ namespace RecordShop.Controllers
             {
                 RecordAdVM.Artists = _db.Artists.ToList();
                 RecordAdVM.Albums = _db.Albums.ToList();
+                RecordAdVM.Formats = _db.Formats.ToList();
                 return View(RecordAdVM);
             }
             _db.RecordAds.Update(RecordAdVM.RecordAd);

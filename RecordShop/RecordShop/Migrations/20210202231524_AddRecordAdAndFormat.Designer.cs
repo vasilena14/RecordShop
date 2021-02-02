@@ -10,8 +10,8 @@ using RecordShop.AppDbContext;
 namespace RecordShop.Migrations
 {
     [DbContext(typeof(RecordShopDbContext))]
-    [Migration("20210202215242_AddFormatAndUpdateRecordAd")]
-    partial class AddFormatAndUpdateRecordAd
+    [Migration("20210202231524_AddRecordAdAndFormat")]
+    partial class AddRecordAdAndFormat
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

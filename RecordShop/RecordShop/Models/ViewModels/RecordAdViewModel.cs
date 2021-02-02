@@ -15,7 +15,7 @@ namespace RecordShop.Models.ViewModels
         public IEnumerable<Currency> Currencies { get; set; }
 
         private List<Currency> CList = new List<Currency>();
-        private List<Format> FList = new List<Format>();
+        //private List<Format> FList = new List<Format>();
         private List<Currency> CreateCurrencyList()
         {
             CList.Add(new Currency("USD", "USD"));
@@ -24,19 +24,19 @@ namespace RecordShop.Models.ViewModels
             return CList;
         }
 
-        private List<Format> CreateFormatList()
-        {
-            FList.Add(new Format("CD", "CD"));
-            FList.Add(new Format("Cassette", "Cassette"));
-            FList.Add(new Format("Digital - MP3", "Digital - MP3"));
-            FList.Add(new Format("Vinyl", "Vinyl"));
-            return FList;
-        }
+        //private List<Format> CreateFormatList()
+        //{
+        //    FList.Add(new Format("CD", "CD"));
+        //    FList.Add(new Format("Cassette", "Cassette"));
+        //    FList.Add(new Format("Digital - MP3", "Digital - MP3"));
+        //    FList.Add(new Format("Vinyl", "Vinyl"));
+        //    return FList;
+        //}
 
         public RecordAdViewModel()
         {
             Currencies = CreateCurrencyList();
-            Formats = CreateFormatList();
+            //Formats = CreateFormatList();
         }
     }
 
@@ -52,15 +52,15 @@ namespace RecordShop.Models.ViewModels
         }
     }
 
-    public class Format
-    {
-        public String Id { get; set; }
-        public String Name { get; set; }
+    //public class Format
+    //{
+    //    public String Id { get; set; }
+    //    public String Name { get; set; }
 
-        public Format(String id, String name)
-        {
-            Id = id;
-            Name = name;
-        }
-    }
+    //    public Format(String id, String name)
+    //    {
+    //        Id = id;
+    //        Name = name;
+    //    }
+    //}
 }
