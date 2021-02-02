@@ -21,21 +21,22 @@
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        @if (User.IsInRole(Roles.Admin) || User.IsInRole(Roles.Executive))
-                        {
+                        
                             <li class="nav-item dropdown">
                                 <a class="nav-link active dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Record Info
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li><a class="dropdown-item" asp-controller="RecordAd" asp-action="Index">Record Ads</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" asp-controller="Artist" asp-action="Index">Artists</a></li>
-                                    <li><a class="dropdown-item" asp-controller="Album" asp-action="Index">Albums</a></li>
-                                    @*<li><a class="dropdown-item" href="#">Genres</a></li>*@
+                                    @if (User.IsInRole(Roles.Admin) || User.IsInRole(Roles.Executive))
+                                    {
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item" asp-controller="Artist" asp-action="Index">Artists</a></li>
+                                        <li><a class="dropdown-item" asp-controller="Album" asp-action="Index">Albums</a></li>
+                                        @*<li><a class="dropdown-item" href="#">Genres</a></li>*@
+                                    }
                                 </ul>
                             </li>
-                        }
                         @if (User.IsInRole(Roles.Admin))
                         {
                             <li class="nav-item">

@@ -31,6 +31,7 @@ namespace RecordShop.Controllers
             };
         }
 
+        [AllowAnonymous]
         public IActionResult Index()
         {
             var RecordAds = _db.RecordAds.Include(m => m.Artist).Include(m => m.Album);
